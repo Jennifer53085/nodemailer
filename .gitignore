@@ -1,0 +1,9 @@
+# Node artifact files
+node_modules/
+
+# Applications
+*.app
+*.exe
+*.war
+
+#package-lock.json
