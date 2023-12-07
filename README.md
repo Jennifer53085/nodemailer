@@ -2,8 +2,8 @@
 
 ##使用google OAuth 2.0 透過Gmail api寄信
 1.建立專案
-  ![Select Project" Dropdown Menu](https://github.com/Jennifer53085/nodemailer/blob/main/1701914533295.jpg)https://github.com/Jennifer53085/nodemailer/blob/main/1701914533295.jpg)
-  ![Create New Project](https://github.com/Jennifer53085/nodemailer/blob/main/1701914555154.jpg)https://github.com/Jennifer53085/nodemailer/blob/main/1701914555154.jpg)
+  ![Select Project" Dropdown Menu](https://github.com/Jennifer53085/nodemailer/blob/main/1701914533295.jpg)
+  ![Create New Project](https://github.com/Jennifer53085/nodemailer/blob/main/1701914555154.jpg)
 
 2.選取Gmail api
   點擊左側導覽列中的「API和服務」
