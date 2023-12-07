@@ -24,9 +24,9 @@
   ![OAuth 2.0 Configuration Screen](https://github.com/Jennifer53085/nodemailer/blob/main/agreement.png)
   
   點擊外部，會進入「編輯應用程式註冊申請」畫面，以下三點是必填外其他都是選填:
-  -應用程式名稱：取名
+  *應用程式名稱：取名
   *使用者支援電子郵件：選自己 Email
-  +開發人員聯絡資訊：選自己 Email
+  *開發人員聯絡資訊：選自己 Email
   點擊後進入「範圍」的設定頁面可以跳過設定直接點「儲存並繼續」
 
 #### 4.設定OAuth2.0憑證
@@ -47,10 +47,10 @@
 
 ## SMTP server設定
 取得該公司的SMTP的
--domain name(host)
+*domain name(host)
 *port號
 *auth.user:寄件人信箱帳號
-+auth.pass:寄件人信箱密碼
+*auth.pass:寄件人信箱密碼
 ```
 const mail=nodemailer.createTransport({
   host: 'mail.domain.com', // Server
