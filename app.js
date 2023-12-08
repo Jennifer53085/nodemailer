@@ -1,11 +1,16 @@
+/*需要透過npm下載
+1.express
+2.ejs
+3.nodemailer
+
+之後下nodemon app.js可運行
+*/
+
 const express = require("express");
 const session = require("express-session");
 const authRouter = require("./routes/auth_to_email");
 
 const app = express();
-
-//gmail api從下面網址開始使用這個網頁進行登入
-// http://localhost:3000/auth/login
 
 // Express 產生器並沒有啟用 session 功能
 app.use(
@@ -20,6 +25,17 @@ app.use(
     },
   })
 );
+
+// 設定 EJS 模板引擎
+app.set('view engine', 'ejs');
+
+// 忽略 /favicon.ico 的請求
+app.get('/favicon.ico', (req, res) => res.status(204));
+
+
+app.get('/', (req, res) => {
+  res.render('view', { pageTitle: '選一個方式寄信' });
+});
 
 app.use("/auth", authRouter);
 
@@ -37,8 +53,10 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render("error");
+  res.render("error",{ pageTitle: 'Error Page' });
 });
+
+
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");

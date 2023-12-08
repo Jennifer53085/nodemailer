@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= pageTitle %></title>
+    <style>
+      body {
+        padding: 1rem;
+        text-align: center;
+      }
+      ul {
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+      }
+      button {
+        margin: 0.5rem;
+        padding: 2rem;
+        border:5px solid #64834e;
+        background-color: #64834e;
+        border-radius: 20px;
+        color: #fff;
+        font-weight: 900;
+        font-size: 2rem;
+        cursor: pointer;
+        transition: 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+      }
+
+      button:hover{
+        background-color: transparent;
+        color:#64834e;
+      }
+      
+      #status {
+        border-radius: 50px;
+        margin: 1rem;
+        padding: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1><%= pageTitle %></h1>
+    <ul>
+      <li><button onclick="login()">Login and Email by OAuth2.0</button></li>
+      <li><button onclick="emailbySMTP()">Email by SMTP</button></li>
+    </ul>
+
+    <h1 id="status"></h1>
+    <script>
+      const status = document.getElementById("status");
+      function login() {
+        fetch("http://localhost:3000/auth/login", {
+          method: "get",
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            // 處理 API 回應的資料
+            status.innerText = "透過google OAuth2.0寄信成功";
+            status.style.border = "5px solid #000";
+            setTimeout(() => {
+              status.innerText = "";
+              status.style.border = "0";
+            }, 3000);
+          })
+          .catch((error) => {
+            // 處理錯誤
+            console.error("Error:", error);
+          });
+      }
+      function emailbySMTP() {
+        fetch("http://localhost:3000/auth/emailbySMTP", {
+          method: "get",
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data); // 檢查是否獲取到了正確的回應
+            // 處理 API 回應的資料
+            status.innerText = "透過SMTP寄信成功";
+            status.style.border = "5px solid #000";
+            setTimeout(() => {
+              status.innerText = "";
+              status.style.border = "0";
+            }, 3000);
+          })
+          .catch((error) => {
+            // 處理錯誤
+            console.error("Error:", error);
+          });
+      }
+    </script>
+  </body>
+</html>
